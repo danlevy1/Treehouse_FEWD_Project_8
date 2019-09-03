@@ -1,0 +1,48 @@
+// **************************************
+// components/_employee-card.scss
+// Employee card styles
+// **************************************
+
+#employee-card-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.employee-card {
+    display: flex;
+    background-color: $employee-card-background-color;
+    border: 1px solid $employee-card-border-color;
+    border-radius: 6px;
+    padding: 10px;
+
+    // .employee-card-picture
+    &-picture {
+        height: 100%;
+        width: auto;
+        border-radius: 50%;
+    }
+
+    // .employee-card-info
+    &-info {
+        padding-left: 20px;
+
+        // .employee-card-info-name
+        &-name {
+            @include text($size: .9rem, $weight: 500, $color: $employee-name-text-color, $line-height: null);
+            text-transform: capitalize;
+        }
+
+        // .employee-card-info-details
+        &-details {
+            @include text($size: .7rem, $weight: 300, $color: $employee-details-text-color, $line-height: null);
+            padding-top: 5px;
+        }
+
+        // .employee-card-info-city
+        &-city {
+            text-transform: capitalize;
+        }
+    }
+}

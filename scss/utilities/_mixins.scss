@@ -1,0 +1,33 @@
+// **************************************
+// utilities/_mixins.scss
+// Scss mixins
+// **************************************
+
+// Formats text
+@mixin text($size, $weight, $color, $line-height) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+    line-height: $line-height;
+}
+
+// Media query
+@mixin media-query($breakpoint) {
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+// Flexbox container
+@mixin flex-container($justify-content, $align-items) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+// Grid container
+@mixin grid-container($grid-template-rows, $grid-template-columns) {
+    display: grid;
+    grid-template-rows: $grid-template-rows;
+    grid-template-columns: $grid-template-columns;
+}

@@ -1,0 +1,20 @@
+// **************************************
+// base/_base.scss
+// Base styles
+// **************************************
+
+body {
+    font-family: $primary-font-stack;
+    background-color: $body-background-color;
+}
+
+#main-heading {
+    @include text($size: 0.8rem, $weight: 400, $color: $main-heading-text-color, $line-height: null);
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 20px;
+}
+
+label {
+    display: none;
+}
