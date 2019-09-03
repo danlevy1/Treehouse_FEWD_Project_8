@@ -58,6 +58,10 @@ table {
 }
 
 body {
+  box-sizing: border-box;
+}
+
+body {
   font-family: "Roboto", sans-serif;
   background-color: #fcfcfc;
 }
@@ -73,6 +77,10 @@ body {
 
 label {
   display: none;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 #search {
@@ -105,6 +113,10 @@ label {
   border: 1px solid #dfdfdf;
   border-radius: 6px;
   padding: 10px;
+  transition: transform 0.5s;
+}
+.employee-card:hover {
+  transform: translateY(-10px);
 }
 .employee-card-picture {
   height: 100%;
@@ -128,6 +140,72 @@ label {
 }
 .employee-card-info-city {
   text-transform: capitalize;
+}
+
+.modal-view {
+  position: absolute;
+  width: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+.modal-view-container {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.7);
+}
+.modal-view-close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 15px;
+  height: 15px;
+}
+.modal-view-arrow-button {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  translate: transformY(-50%);
+}
+.modal-view-left-arrow-button {
+  left: 10px;
+}
+.modal-view-right-arrow-button {
+  right: 10px;
+}
+.modal-view-employee-picture {
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+}
+.modal-view-employee-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1d2f3a;
+  line-height: 1.3rem;
+  text-align: center;
+  padding-top: 15px;
+}
+.modal-view-employee-details {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #979c9f;
+  line-height: 1.2rem;
+  text-align: center;
+  padding-top: 15px;
+}
+.modal-view-line {
+  width: 100%;
+  height: 1px;
+  background-color: #dfdfdf;
+  margin: 20px 0 5px;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -16,6 +16,12 @@
     border: 1px solid $employee-card-border-color;
     border-radius: 6px;
     padding: 10px;
+    transition: transform .5s;
+
+    // .employee-card:hover
+    &:hover {
+        transform: translateY(-10px);
+    }
 
     // .employee-card-picture
     &-picture {
