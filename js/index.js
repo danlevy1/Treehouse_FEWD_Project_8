@@ -44,7 +44,7 @@ function displayEmployees(jsonData) {
         // Creates employee picture
         const employeePicture = document.createElement("img");
         employeePicture.className = "employee-card-picture";
-        employeePicture.src = employee.picture.thumbnail;
+        employeePicture.src = employee.picture.medium;
         employeePicture.alt = "Employee Picture";
         employeeCard.appendChild(employeePicture);
 
@@ -111,7 +111,7 @@ function employeeCardListener(employeeCards, employees) {
  * @param {*} index The index of the employee clicked on the the employees array
  */
 function displayModalView(employees, index) {
-    const bodyElement = document.querySelector('body');
+    const bodyElement = document.querySelector("body");
     const employee = employees[index];
 
     // Creates modal view container
@@ -120,8 +120,8 @@ function displayModalView(employees, index) {
     bodyElement.appendChild(modalViewContainer);
 
     // Adds click event listener to modal view
-    modalViewContainer.addEventListener('click', event => {
-        if (event.target.className === 'modal-view-container') {
+    modalViewContainer.addEventListener("click", event => {
+        if (event.target.className === "modal-view-container") {
             bodyElement.removeChild(modalViewContainer);
         }
     });
@@ -134,39 +134,57 @@ function displayModalView(employees, index) {
     // Creates close button
     const closeButton = document.createElement("img");
     closeButton.className = "modal-view-close-button";
-    closeButton.src = 'img/close-icon-fa.svg';
+    closeButton.src = "img/close-icon-fa.svg";
     closeButton.alt = "Close Button";
     modalView.appendChild(closeButton);
 
     // Adds click event listener to close button
-    closeButton.addEventListener('click', () => {
+    closeButton.addEventListener("click", () => {
         bodyElement.removeChild(modalViewContainer);
     });
 
     // Creates left arrow button
     const leftArrow = document.createElement("img");
     leftArrow.className = "modal-view-arrow-button modal-view-left-arrow-button";
-    leftArrow.src = 'img/left-icon-fa.svg';
+    leftArrow.src = "img/left-icon-fa.svg";
     leftArrow.alt = "Left Arrow";
     modalView.appendChild(leftArrow);
 
     // Adds click event listener to left arrow button
-    leftArrow.addEventListener('click', () => {
+    leftArrow.addEventListener("click", () => {
         index = getPrevEmployee(employees, index);
-        updateModalView(employees[index], employeePicture, employeeName, employeeEmail, employeeCity, employeePhone, employeeAddress, employeeBirthday);
+        updateModalView(
+            employees[index],
+            employeePicture,
+            employeeName,
+            employeeEmail,
+            employeeCity,
+            employeePhone,
+            employeeAddress,
+            employeeBirthday
+        );
     });
 
     // Creates right arrow button
     const rightArrow = document.createElement("img");
     rightArrow.className = "modal-view-arrow-button modal-view-right-arrow-button";
-    rightArrow.src = 'img/right-icon-fa.svg';
+    rightArrow.src = "img/right-icon-fa.svg";
     rightArrow.alt = "Right Arrow";
     modalView.appendChild(rightArrow);
 
     // Adds click event listener to right arrow button
-    rightArrow.addEventListener('click', () => {
+    rightArrow.addEventListener("click", () => {
         index = getNextEmployee(employees, index);
-        updateModalView(employees[index], employeePicture, employeeName, employeeEmail, employeeCity, employeePhone, employeeAddress, employeeBirthday);
+        updateModalView(
+            employees[index],
+            employeePicture,
+            employeeName,
+            employeeEmail,
+            employeeCity,
+            employeePhone,
+            employeeAddress,
+            employeeBirthday
+        );
     });
 
     // Creates employee picture
@@ -195,8 +213,8 @@ function displayModalView(employees, index) {
     modalView.appendChild(employeeCity);
 
     // Creates line
-    const lineDiv = document.createElement('div');
-    lineDiv.className = 'modal-view-line';
+    const lineDiv = document.createElement("div");
+    lineDiv.className = "modal-view-line";
     modalView.appendChild(lineDiv);
 
     // Creates employee cell phone number
@@ -215,7 +233,8 @@ function displayModalView(employees, index) {
     const employeeBirthday = document.createElement("h3");
     employeeBirthday.classList = "modal-view-employee-details";
     const dob = new Date(employee.dob.date);
-    employeeBirthday.textContent = `Birthday: ${dob.getMonth() + 1}/${dob.getDate()}/${dob.getFullYear()}`;
+    employeeBirthday.textContent = `Birthday: ${dob.getMonth() +
+        1}/${dob.getDate()}/${dob.getFullYear()}`;
     modalView.appendChild(employeeBirthday);
 }
 
@@ -256,7 +275,16 @@ function getPrevEmployee(employees, currentIndex) {
  * @param {*} addressElement The employee address element
  * @param {*} birthdayElement The employee birthday element
  */
-function updateModalView(employee, pictureElement, nameElement, emailElement, cityElement, phoneElement, addressElement, birthdayElement) {
+function updateModalView(
+    employee,
+    pictureElement,
+    nameElement,
+    emailElement,
+    cityElement,
+    phoneElement,
+    addressElement,
+    birthdayElement
+) {
     pictureElement.src = employee.picture.large;
     nameElement.textContent = `${employee.name.first} ${employee.name.last}`;
     emailElement.textContent = employee.email;
@@ -264,7 +292,8 @@ function updateModalView(employee, pictureElement, nameElement, emailElement, ci
     phoneElement.textContent = employee.cell;
     addressElement.textContent = `${employee.location.street}, ${employee.location.city}, ${employee.location.state} ${employee.location.postcode}`;
     const dob = new Date(employee.dob.date);
-    birthdayElement.textContent = `Birthday: ${dob.getMonth() + 1}/${dob.getDate()}/${dob.getFullYear()}`;
+    birthdayElement.textContent = `Birthday: ${dob.getMonth() +
+        1}/${dob.getDate()}/${dob.getFullYear()}`;
 }
 
 /**

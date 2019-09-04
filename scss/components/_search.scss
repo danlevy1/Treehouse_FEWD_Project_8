@@ -5,10 +5,13 @@
 
 #search {
     width: calc(100% - 50px);
+    max-width: 400px;
     height: 30px;
-    margin: 20px 20px 0;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
     padding-left: 10px;
-    border: none;
+    border: 1px solid $search-border-color;
     border-radius: 6px;
     background-color: #fff;
     @include text($size: .8rem, $weight: 400, $color: $search-text-color, $line-height: null);

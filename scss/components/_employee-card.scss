@@ -8,15 +8,28 @@
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 20px;
+
+    @include media-query($breakpoint: $tablet-breakpoint) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include media-query($breakpoint: $desktop-breakpoint) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 .employee-card {
-    display: flex;
+    @include flex-container($justify-content: null, $align-items: center);
     background-color: $employee-card-background-color;
     border: 1px solid $employee-card-border-color;
     border-radius: 6px;
     padding: 10px;
     transition: transform .5s;
+    cursor: pointer;
+
+    @include media-query($breakpoint: $desktop-breakpoint) {
+        padding: 20px;
+    }
 
     // .employee-card:hover
     &:hover {
@@ -25,9 +38,13 @@
 
     // .employee-card-picture
     &-picture {
-        height: 100%;
+        height: 50px;
         width: auto;
         border-radius: 50%;
+
+        @include media-query($breakpoint: $desktop-breakpoint) {
+            height: 100%;
+        }
     }
 
     // .employee-card-info
